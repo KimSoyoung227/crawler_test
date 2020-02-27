@@ -6,9 +6,9 @@ import pandas as pd
 import numpy as np
 import os
 
-base_url = "https://www.koreatimes.co.kr"   # 기본 사이트 url
-base_dir="D:\99.project\08.BMT\crawling"    # 생성될 엑셀파일 경로
-file_name = "sports.xlsx"                   # 생성될 엑셀파일명
+base_url = "https://www.koreatimes.co.kr"   # 기본 사이트 url (required)
+base_dir="D:\99.project\08.BMT\crawling"    # 생성될 엑셀파일 경로 (required)
+file_name = "sports.xlsx"                   # 생성될 엑셀파일명 (required)
 xlxs_dir = os.path.join(base_dir, file_name)
 result_title = []
 result_content = []
@@ -16,10 +16,10 @@ contents_url = []
 
 
 # 페이지로 이동하기
-for n in range(1,50,+1):
-    print(n);
+for n in range(1,30,+1):
+    print(n); # 페이지 번호
     if n == 1:
-        url = base_url + "/www/sublist_600.html"
+        url = base_url + "/www/sublist_600.html" # 페이이징 url (required)
     else:
         url = base_url + "/www/sublist_600_{}.html".format(n)
     html = urlopen(url)
